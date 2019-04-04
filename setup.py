@@ -15,9 +15,7 @@ setup(
     author_email='baronvonvaderham@gmail.com',
     url='https://github.com/baronvonvaderham/BayulsBazaar',
     long_description=read("README.md"),
-    packages=[
-        'card_catalog',
-        ],
+    packages=find_packages(),
     classifiers=[
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
