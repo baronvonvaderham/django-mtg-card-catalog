@@ -5,14 +5,14 @@ import time
 import unicodedata
 from celery.utils.log import get_task_logger
 
-from .constants import (
+from card_catalog.constants import (
     TCG_BEARER_TOKEN_URL,
     TCG_ALL_SETS_URL,
     TCG_CARD_LIST_FOR_SET_URL,
     TCG_PRICES_FOR_SET_URL,
     BASIC_TYPES,
 )
-from settings import TCG_API_PRIVATE_KEY, TCG_API_PUBLIC_KEY
+from card_catalog.settings import TCG_API_PRIVATE_KEY, TCG_API_PUBLIC_KEY
 
 logger = get_task_logger('tasks.common')
 

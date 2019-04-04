@@ -5,10 +5,10 @@ from celery.schedules import crontab
 from celery.task import PeriodicTask, group
 from celery.utils.log import get_task_logger
 
-from .constants import EXCLUDED_CARD_NAMES, EXCLUDED_SETS
-from .models import CardSet, Card, ScryfallCard, CardPrice
-from .services import CardCatalogSyncService, ScryfallAPIService
-from celery_app import app
+from card_catalog.constants import EXCLUDED_CARD_NAMES, EXCLUDED_SETS
+from card_catalog.models import CardSet, Card, ScryfallCard, CardPrice
+from card_catalog.services import CardCatalogSyncService, ScryfallAPIService
+from card_catalog.celery_app import app
 
 logger = get_task_logger('tasks.common')
 

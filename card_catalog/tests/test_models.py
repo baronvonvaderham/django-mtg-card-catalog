@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.test import TestCase
-from settings import TCG_AFFILIATE_PARTNER_CODE
+from card_catalog.settings import TCG_AFFILIATE_PARTNER_CODE
 
 from card_catalog.tests.api_test_data import (
     TCG_EXPO_SET_DATA,

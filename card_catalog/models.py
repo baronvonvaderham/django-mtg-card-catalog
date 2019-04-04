@@ -2,10 +2,10 @@
 from django.db import models
 from django.utils import timezone
 import datetime
-import settings
+import card_catalog.settings as settings
 import unicodedata
 
-from .services import ScryfallAPIService
+from card_catalog.services import ScryfallAPIService
 
 
 class CardSetManager(models.Manager):

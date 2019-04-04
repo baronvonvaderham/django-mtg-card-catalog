@@ -7,7 +7,7 @@ SECRET_KEY = '1k6&%=lz&g5br0p6cls@^jv-(5gl22l-z6o&&=3t=&7rd)j)t_'
 
 # Application definition
 
-DJANGO_AND_THIRD_PARTY_APPS = [
+INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -16,13 +16,8 @@ DJANGO_AND_THIRD_PARTY_APPS = [
     'django.contrib.staticfiles',
 
     'celery',
-]
-
-LOCAL_APPS = [
     'card_catalog',
 ]
-
-INSTALLED_APPS = DJANGO_AND_THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

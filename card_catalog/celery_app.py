@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
 import os
-import settings
+import card_catalog.settings as settings
 from celery import Celery
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings')
