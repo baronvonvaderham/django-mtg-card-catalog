@@ -1,5 +1,6 @@
-django>=1.11.19
 celery==4.2.1
 coverage
+django>=1.11.19
+psycopg2==2.7.3.2
 redis
 requests
