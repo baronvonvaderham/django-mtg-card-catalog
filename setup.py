@@ -8,7 +8,7 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
-    name='django-mtg-card-catalog',
+    name='card_catalog',
     version='0.1',
     description="A reusable django app for syncing the full card and product catalog from TCGPlayer.com's API.",
     author="Scott Johnson",
