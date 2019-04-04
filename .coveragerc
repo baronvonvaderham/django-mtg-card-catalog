@@ -1,0 +1,11 @@
+# .coveragerc to control coverage.py
+[run]
+source = .
+omit =
+    *tests*
+    *migrations*
+    *settings
+    *wsgi.py
+    *manage.py
+    *celery_app.py
+    *test_*
