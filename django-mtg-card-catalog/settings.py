@@ -56,12 +56,17 @@ TCG_API_PRIVATE_KEY = os.getenv('TCG_API_PRIVATE_KEY', None)
 TCG_API_APPLICATION_ID = os.getenv('TCG_API_APPLICATION_ID', None)
 TCG_AFFILIATE_PARTNER_CODE = os.getenv('TCG_AFFILIATE_PARTNER_CODE', None)
 
-# DATABASES
+# DATABASE CONFIG
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'cardcatalog',
-    }
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'localhost',
+        'PORT': '5432',
+        'ATOMIC_REQUESTS': False
+    },
 }
 REDIS_HOST = os.getenv('REDIS_HOST', 'redis://')
 
