@@ -69,7 +69,7 @@ class Card(models.Model):
     """
     name = models.CharField(max_length=256)
     tcg_product_id = models.CharField(max_length=64)
-    set = models.ForeignKey(CardSet, on_delete=models.PROTECT)
+    set = models.ForeignKey(CardSet, on_delete=models.CASCADE)
     product_url = models.URLField(blank=True, null=True)
     image_url = models.URLField(blank=True, null=True)
     mana_cost = models.CharField(max_length=128, blank=True, null=True)
@@ -212,7 +212,7 @@ class CardPrice(models.Model):
     """
     Class to contain timestamped pricing data from TCGPlayer, synced daily.
     """
-    card = models.ForeignKey(Card, blank=False, null=False, on_delete=models.PROTECT)
+    card = models.ForeignKey(Card, blank=False, null=False, on_delete=models.CASCADE)
     date = models.DateField(default=timezone.now, blank=False, null=False)
     low = models.DecimalField(blank=True, null=True, max_digits=20, decimal_places=2)
     mid = models.DecimalField(blank=True, null=True, max_digits=20, decimal_places=2)
