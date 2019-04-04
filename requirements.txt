@@ -3,3 +3,4 @@ celery==4.2.1
 coverage
 redis
 requests
+sqlite>=3.8.3
