@@ -1,4 +1,4 @@
-django==1.11
+django>=1.11.19
 celery==4.2.1
 coverage
 redis
