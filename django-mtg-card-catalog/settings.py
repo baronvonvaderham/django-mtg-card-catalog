@@ -24,6 +24,32 @@ LOCAL_APPS = [
 
 INSTALLED_APPS = DJANGO_AND_THIRD_PARTY_APPS + LOCAL_APPS
 
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': ['templates'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
 # TCGPlayer API Settings
 TCG_API_PUBLIC_KEY = os.getenv('TCG_API_PUBLIC_KEY', None)
 TCG_API_PRIVATE_KEY = os.getenv('TCG_API_PRIVATE_KEY', None)

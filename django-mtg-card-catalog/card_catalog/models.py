@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from django.utils import timezone
 import datetime
 import settings
 import unicodedata
@@ -68,7 +69,7 @@ class Card(models.Model):
     """
     name = models.CharField(max_length=256)
     tcg_product_id = models.CharField(max_length=64)
-    set = models.ForeignKey(CardSet)
+    set = models.ForeignKey(CardSet, on_delete=models.PROTECT)
     product_url = models.URLField(blank=True, null=True)
     image_url = models.URLField(blank=True, null=True)
     mana_cost = models.CharField(max_length=128, blank=True, null=True)
@@ -211,8 +212,8 @@ class CardPrice(models.Model):
     """
     Class to contain timestamped pricing data from TCGPlayer, synced daily.
     """
-    card = models.ForeignKey(Card, blank=False, null=False)
-    date = models.DateField(default=datetime.date.today(), blank=False, null=False)
+    card = models.ForeignKey(Card, blank=False, null=False, on_delete=models.PROTECT)
+    date = models.DateField(default=timezone.now, blank=False, null=False)
     low = models.DecimalField(blank=True, null=True, max_digits=20, decimal_places=2)
     mid = models.DecimalField(blank=True, null=True, max_digits=20, decimal_places=2)
     high = models.DecimalField(blank=True, null=True, max_digits=20, decimal_places=2)
