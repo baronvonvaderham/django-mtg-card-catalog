@@ -4,7 +4,7 @@ import datetime
 import settings
 import unicodedata
 
-from card_catalog.services import ScryfallAPIService
+from .services import ScryfallAPIService
 
 
 class CardSetManager(models.Manager):
