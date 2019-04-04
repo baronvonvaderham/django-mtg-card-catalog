@@ -1,0 +1,53 @@
+import os
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+SECRET_KEY = '1k6&%=lz&g5br0p6cls@^jv-(5gl22l-z6o&&=3t=&7rd)j)t_'
+
+# Application definition
+
+DJANGO_AND_THIRD_PARTY_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+
+    'celery',
+]
+
+LOCAL_APPS = [
+    'card_catalog',
+]
+
+INSTALLED_APPS = DJANGO_AND_THIRD_PARTY_APPS + LOCAL_APPS
+
+# TCGPlayer API Settings
+TCG_API_PUBLIC_KEY = os.getenv('TCG_API_PUBLIC_KEY', None)
+TCG_API_PRIVATE_KEY = os.getenv('TCG_API_PRIVATE_KEY', None)
+TCG_API_APPLICATION_ID = os.getenv('TCG_API_APPLICATION_ID', None)
+TCG_AFFILIATE_PARTNER_CODE = os.getenv('TCG_AFFILIATE_PARTNER_CODE', None)
+
+# DATABASES
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'cardcatalog',
+    }
+}
+REDIS_HOST = os.getenv('REDIS_HOST', 'redis://')
+
+# CELERY
+BROKER_URL = os.getenv('CELERY_BROKER_URL', REDIS_HOST)
+BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 21600}  # 6 hours
+CELERY_APP_NAME = ''
+CELERY_RESULT_BACKEND = 'redis://'
+CELERY_ENABLE_UTC = True
+CELERY_TIMEZONE = 'UTC'
+CELERY_DISABLE_RATE_LIMITS = True
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_ALWAYS_EAGER = os.getenv('CELERY_ALWAYS_EAGER', False)
