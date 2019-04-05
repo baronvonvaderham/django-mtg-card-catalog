@@ -1,0 +1,90 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.21.0
+    method: GET
+    uri: https://api.scryfall.com/bulk-data
+  response:
+    body:
+      string: !!binary |
+        H4sIAMulp1wAA7yUT0/cMBDFv4qVa9dZx87/Gyoc2kORCreqWhxnsmvI2lHsrASI795JNrB0hSgV
+        tIc97Hj8PH6/F98HtroG5YMyaLXzwSLYSLfa2h6CspGtg0VQSy+D8sf9obMa2pvVVF4EusYCcGji
+        CARNsiyncaU4lY1oaJaDknFdF4oL7PW3HcoGNTRyaP1Kyb52WB461IJ6JUdtzqKCspiy5DJiJStK
+        kYc8E58Y/mHYbOR21Djda5DPs0YNTvW689oaXD0hXy/Ov5FGt0CUNV5qo82awA76WzIeS/Z3IdaQ
+        C9Xf4k1bog05M2t0YUNsT/wGSNdrg4ORVpr1INdAdDPVJwXtcHd7S+RO6lZWeBIKWANP3SGOpey2
+        68E5vJ3Tdzh4JLJIMJYsgg76rWy1uVkNvcaZN953rlwuZa82egehm+cKUWN57axZPlbobCCdDAzH
+        tekonNX41Wyy7LpWKzkasjzqAKNsjX5g1/pOd8HD4jW2PKsawaOYRjyLaFywilZ1A1SxClLkWjMO
+        B7a2l6qFt6CNRBmLMOXxMdrzSeLvyI6+P4F8DrhBlCDVhsyqX06fMw/J5YhzYx0Y4sC7qf8RsSOy
+        ByINkd7DtvPEW9KDH3oztWyt82ToqLd0vCQuKbs2+m7KAibN4cTEHhLzYh5yzlmRp++Kw97z/5MG
+        ljZJjOiprApF44TXtBKJpDkvsrpKoCpidkhDP+CN1n8KQoz4Q5anx0H4/rT7TRkY0c9bfmd8NvLf
+        j4KQGiQzktwT3mk5Er6ac6vrqxcx8SjPoyh/F6bZjH9NqOCc57mq8BmGBglBRKtKMMoUr2pRi0TE
+        zYEQDvaWj1XEpYjCIuXHjE7Q9I99g/cNrz6iaZrzhKfiXTjG30d9Mj8ffgEAAP//AwCRv5toSAcA
+        AA==
+    headers:
+      Access-Control-Allow-Headers:
+      - Accept, Accept-Charset, Accept-Language, Authorization, Cache-Control, Content-Language,
+        Content-Type, DNT, Host, If-Modified-Since, Keep-Alive, Origin, Referer, User-Agent,
+        X-Requested-With
+      Access-Control-Allow-Methods:
+      - GET, POST, DELETE, OPTIONS
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Max-Age:
+      - '300'
+      CF-RAY:
+      - 4c2dc3d9ba0650fe-MIA
+      Cache-Control:
+      - no-cache, no-store
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - inline
+      Content-Encoding:
+      - gzip
+      Content-Transfer-Encoding:
+      - binary
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Fri, 05 Apr 2019 19:00:27 GMT
+      Expect-CT:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server:
+      - cloudflare
+      Set-Cookie:
+      - __cfduid=d262bd93fc973e920860bb0f2a19e70731554490827; expires=Sat, 04-Apr-20
+        19:00:27 GMT; path=/; domain=.scryfall.com; HttpOnly; Secure
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains; preload
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Accept-Encoding
+      Via:
+      - 1.1 vegur
+      X-Content-Type-Options:
+      - nosniff
+      X-Download-Options:
+      - noopen
+      X-Frame-Options:
+      - DENY
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Robots-Tag:
+      - none
+      X-Xss-Protection:
+      - 1; mode=block
+    status:
+      code: 200
+      message: OK
+version: 1

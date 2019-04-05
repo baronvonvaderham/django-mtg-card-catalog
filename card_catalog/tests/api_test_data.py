@@ -16,9 +16,12 @@ TCG_EXPO_SET_DATA = {'name': 'Zendikar Expeditions', 'groupId': 1649, 'categoryI
 MEDIA_PROMOS_SET_DATA = {'abbreviation': 'MEDIA', 'publishedOn': '1999-01-02T00:00:00', 'groupId': 72, 'categoryId': 1,
                          'name': 'Media Promos', 'isSupplemental': True, 'modifiedOn': '2018-11-12T19:16:13.62'}
 
-TENTH_EDITION_SET_DATA = {'name': '10th Edition', 'groupId': 1, 'categoryId': 1, 'abbreviation': '10E',
-                          'isSupplemental': False, 'modifiedOn': '2018-10-27T18:18:49.417',
-                          'publishedOn': '2007-07-13T00:00:00'}
+SEVENTH_EDITION_SET_DATA = {'groupId': 2, 'name': '7th Edition', 'abbreviation': '7ED', 'isSupplemental': False,
+                            'publishedOn': '2001-04-11T00:00:00', 'modifiedOn': '2019-03-31T16:41:20.503',
+                            'categoryId': 1}
+
+TENTH_EDITION_SET_DATA = {'groupId': 1, 'name': '10th Edition', 'abbreviation': '10E', 'isSupplemental': False,
+                          'publishedOn': '2007-07-13T00:00:00', 'modifiedOn': '2019-04-04T17:47:05.71', 'categoryId': 1}
 
 MISHRAS_FACTORY_FALL_TCG_DATA = {'name': "Mishra's Factory (Fall)", 'categoryId': 1, 'groupId': 8,
                                  'modifiedOn': '2016-12-06T15:17:58.05', 'productId': 77295,

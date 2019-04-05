@@ -6,6 +6,14 @@ omit =
     *migrations*
     *settings
     *wsgi.py
-    *manage.py
-    *celery_app.py
+    manage.py
+    card_catalog/celery_app.py
     *test_*
+    */card_catalog/setup.py
+
+[report]
+exclude_lines =
+    print
+    if __name__ == .__main__.:
+    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+    def read(fname):

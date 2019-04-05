@@ -5,6 +5,8 @@ from card_catalog.services import ScryfallAPIService
 from card_catalog.tests.api_test_data import *
 from card_catalog.models import CardSet, Card, ScryfallCard
 
+import vcr
+
 
 class ScryfallAPIServiceTestCase(TestCase):
     """
@@ -56,6 +58,7 @@ class ScryfallAPIServiceTestCase(TestCase):
         self.bfm_left_scryfall_data = BFM_LEFT_SCRYFALL_DATA
         self.bfm_right_scryfall_data = BFM_RIGHT_SCRYFALL_DATA
 
+    @vcr.use_cassette('vcr_cassettes/get_bulk_data_url.yaml')
     def test_get_bulk_data_url(self):
         url = self.service.get_bulk_data_url()
         self.assertTrue('scryfall-oracle-cards' in url)

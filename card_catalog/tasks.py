@@ -21,6 +21,8 @@ class ScryfallSyncTask(PeriodicTask):
         logger.info('BEGINNING SCRYFALL SYNC TASK')
         bulk_data_url = ScryfallAPIService.get_bulk_data_url()
         scryfall_data = ScryfallAPIService.retrieve_bulk_data(bulk_data_url)
+        if kwargs.get('test'):
+            scryfall_data = scryfall_data[:2]
         load_tasks = []
         for card in scryfall_data:
             card_check = ScryfallCard.objects.filter(oracle_id=card.get('oracle_id')).first()
@@ -46,6 +48,8 @@ class SetSyncTask(PeriodicTask):
             logger.info('BEGINNING SET SYNC TASK')
             tcg_service = CardCatalogSyncService()
             set_list = tcg_service.list_all_sets()
+            if kwargs.get('test'):
+                set_list = set_list[:2]
             counter = 0
             for each_set in set_list:
                 if each_set.get('name') in EXCLUDED_SETS:
@@ -72,10 +76,13 @@ class CardSyncTask(PeriodicTask):
             for each_set in set_list:
                 card_list = each_set.get_cards_for_set()
                 tcg_data = tcg_service.retrieve_product_list_for_set(each_set.tcgplayer_group_id)
+                if kwargs.get('test'):
+                    tcg_data = tcg_data[:2]
                 if not card_list:
                     logger.info("Spawning task to create cards for {}".format(each_set))
                     # If we have no cards at all for this set, it's a new set, make all new cards
-                    load_tasks.append(create_all_new_cards.s(card_set_id=each_set.id, tcg_data=tcg_data))
+                    load_tasks.append(create_all_new_cards.s(card_set_id=each_set.id, tcg_data=tcg_data,
+                                                             sync_all_products=kwargs.get('sync_all_products')))
                 elif len(card_list) != len(tcg_data):
                     logger.info("Checking cards in {}".format(each_set))
                     # If the length of these sets doesn't match, likely a new card was added to
@@ -85,11 +92,12 @@ class CardSyncTask(PeriodicTask):
                         card = card_list.filter(tcg_product_id=tcg_card.get('productId'))
                         if not card:
                             create = True
-                            for exclusion in EXCLUDED_CARD_NAMES:
-                                if exclusion in tcg_card.get('name'):
-                                    create = False
-                            if tcg_card.get('name').endswith('Deck') or not create:
-                                continue
+                            if not kwargs.get('sync_all_products'):
+                                for exclusion in EXCLUDED_CARD_NAMES:
+                                    if exclusion in tcg_card.get('name'):
+                                        create = False
+                                if tcg_card.get('name').endswith('Deck') or not create:
+                                    continue
                             # Card doesn't exist, so create it
                             load_tasks.append(create_new_card.s(card_set_id=each_set.id, tcg_data=tcg_card))
             task_group = group(load_tasks)
@@ -120,15 +128,18 @@ def create_new_set(new_set):
 
 
 @app.task(name='create-all-new-cards-for-set')
-def create_all_new_cards(card_set_id, tcg_data):
+def create_all_new_cards(card_set_id, tcg_data, sync_all_products=False):
     cards_created = 0
     card_set = CardSet.objects.get(id=card_set_id)
     for card in tcg_data:
         create = True
-        for exclusion in EXCLUDED_CARD_NAMES:
-            if exclusion in card.get('name'):
+        if not sync_all_products:
+            for exclusion in EXCLUDED_CARD_NAMES:
+                if exclusion in card.get('name'):
+                    create = False
+            if card.get('name').endswith('Deck'):
                 create = False
-        if create and not card.get('name').endswith('Deck'):
+        if create:
             # logger.info(card.get('name'))
             Card.objects.create_card(tcg_card_data=card, card_set=card_set)
             cards_created += 1

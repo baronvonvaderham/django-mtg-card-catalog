@@ -17,6 +17,7 @@ INSTALLED_APPS = [
 
     'celery',
     'card_catalog',
+    'vcr',
 ]
 
 MIDDLEWARE = [
