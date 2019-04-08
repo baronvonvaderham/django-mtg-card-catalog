@@ -48,6 +48,8 @@ class CardCatalogSyncService(object):
             params['groupId'] = set_group_id
         response = requests.request('GET', url, headers=headers, params=params)
         total_items = json.loads(response._content.decode('utf8')).get('totalItems')
+        if not total_items:
+            return json.loads(response._content.decode('utf8')).get('results')
         queries_required = int(int(total_items) / 100) + 1 if total_items else 0
         results = []
         if queries_required:
@@ -71,7 +73,7 @@ class CardCatalogSyncService(object):
 
     def get_prices_for_set(self, set_id):
         url = TCG_PRICES_FOR_SET_URL.format(set_id)
-        return self.execute_chunked_query(url=url)
+        return self.execute_chunked_query(url=url, set_group_id=set_id)
 
 
 class ScryfallAPIService:

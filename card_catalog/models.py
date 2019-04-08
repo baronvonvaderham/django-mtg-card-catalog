@@ -167,14 +167,17 @@ class ScryfallCard(models.Model):
 class CardPriceManager(models.Manager):
 
     def update_or_create_price(self, data):
-        price_entry = self.filter(card__tcg_product_id=data.get('productId'), date=datetime.date.today())
+        try:
+            card = Card.objects.get(tcg_product_id=data.get('productId'))
+        except Card.DoesNotExist:
+            return False, None
+        price_entry = self.filter(card__tcg_product_id=data.get('productId'), date=datetime.date.today()).first()
         if price_entry:
             return False, self.update_price(price_entry, data)
         else:
-            return True, self.create_price(data)
+            return True, self.create_price(data, card)
 
-    def create_price(self, data):
-        card = Card.objects.get(tcg_product_id=data.get('productId'))
+    def create_price(self, data, card):
         if data.get('subTypeName') == 'Normal':
             price_entry = self.create(
                 card=card,
@@ -183,7 +186,7 @@ class CardPriceManager(models.Manager):
                 high=data.get('highPrice'),
                 market=data.get('marketPrice'),
             )
-        elif data.get('subtypeName') == 'Foil':
+        elif data.get('subTypeName') == 'Foil':
             price_entry = self.create(
                 card=card,
                 foil_low=data.get('lowPrice'),

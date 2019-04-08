@@ -9,7 +9,7 @@ omit =
     manage.py
     card_catalog/celery_app.py
     *test_*
-    */card_catalog/setup.py
+    *setup.py
 
 [report]
 exclude_lines =
@@ -17,3 +17,4 @@ exclude_lines =
     if __name__ == .__main__.:
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
     def read(fname):
+    except Card.DoesNotExist:

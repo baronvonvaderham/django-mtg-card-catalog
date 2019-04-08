@@ -48,8 +48,6 @@ class SetSyncTask(PeriodicTask):
             logger.info('BEGINNING SET SYNC TASK')
             tcg_service = CardCatalogSyncService()
             set_list = tcg_service.list_all_sets()
-            if kwargs.get('test'):
-                set_list = set_list[:2]
             counter = 0
             for each_set in set_list:
                 if each_set.get('name') in EXCLUDED_SETS:
@@ -116,10 +114,10 @@ class PriceSyncTask(PeriodicTask):
             load_tasks = []
             for each_set in set_list:
                 logger.info("Syncing prices for {}".format(each_set))
-                tcg_data = tcg_service.get_prices_for_set(set_id=each_set.id)
+                tcg_data = tcg_service.get_prices_for_set(set_id=each_set.tcgplayer_group_id)
                 load_tasks.append(log_set_pricing.s(card_set=each_set, tcg_data=tcg_data))
             task_group = group(load_tasks)
-            group_complete = task_group.apply_async()
+            group_complete = task_group.apply()
             logger.info('CARD SYNC TASK COMPLETE!')
 
 
@@ -137,8 +135,6 @@ def create_all_new_cards(card_set_id, tcg_data, sync_all_products=False):
             for exclusion in EXCLUDED_CARD_NAMES:
                 if exclusion in card.get('name'):
                     create = False
-            if card.get('name').endswith('Deck'):
-                create = False
         if create:
             # logger.info(card.get('name'))
             Card.objects.create_card(tcg_card_data=card, card_set=card_set)
@@ -157,7 +153,7 @@ def create_new_card(card_set_id, tcg_data):
 def log_set_pricing(card_set, tcg_data):
     cards = 0
     for item in tcg_data:
-        success, _ = CardPrice.objects.update_or_create(item)
+        success, _ = CardPrice.objects.update_or_create_price(item)
         if success:
             cards += 1
     logger.info('Logged pricing for {} cards in set {}'.format(cards, card_set))

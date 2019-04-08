@@ -18,8 +18,8 @@ interactions:
     uri: https://api.tcgplayer.com/token
   response:
     body:
-      string: '{"access_token":"pl3y5F2akzqnF4cMA8g45hxJ7IB0mwu4atTSkAhfDTDFhWKEoPHF2APe-f1b1LCEeK3zOJej7cHlmAGTwpPBgrBEALkXitHVCRmGF3BOQglGvfkF2oOqEtx_A1p55kElaw7ZgLyk8GowGCSahMD9eMPsD_QLjq3oaWzkQIlUpqA-VpvwJfBp2J_zN6Zr3_qheCAQphSkwF-HCQou3_jMwRpl7qVjgno-8RDpj7YfEhTt3cjh2Igm9nkGcQcuA0XJYL9t6nDmkwPM4Vs0V5JafwnPQsY2R6pJow9FylTX52hTF4w-AcxCfq9NQQpht52NUMECLw","token_type":"bearer","expires_in":1209599,"userName":"a2345857-0d90-4dca-b289-ec52b35bed33",".issued":"Fri,
-        05 Apr 2019 21:33:36 GMT",".expires":"Fri, 19 Apr 2019 21:33:36 GMT"}'
+      string: '{"access_token":"yOmHFrUYxfb38gJSVIuY9zmHKE6ug1gmsf1WwyTV-7K6Mr8zK5vrvoL1o0T7eIdEn4rmhXtuzOkHupTdMSRXpiCeUvyva4PcsrCk3-0RTdRusmpjj8um21QU9FQGrlYR1BJPFjfkLct1tPQZAqQrRRnkkf0HhnqxxEzjHPvdB7QZ36NcDERg9_aJsdEsAUTajEARWoATWliKY4DcOyT6p3MDhQff2Sa5Lm-gdY8xLv5_uYTPRPgjiB4g8F8tcC7TydKZRIu7vJkWIMvWYJ3XdoXo5FCUbmOUcFyO7HZIu8gA-2PHjkU87XUebwgl-dd4rRvA0g","token_type":"bearer","expires_in":1209599,"userName":"a2345857-0d90-4dca-b289-ec52b35bed33",".issued":"Mon,
+        08 Apr 2019 23:45:20 GMT",".expires":"Mon, 22 Apr 2019 23:45:20 GMT"}'
     headers:
       Cache-Control:
       - no-cache
@@ -28,7 +28,7 @@ interactions:
       Content-Type:
       - application/json;charset=UTF-8
       Date:
-      - Fri, 05 Apr 2019 21:33:35 GMT
+      - Mon, 08 Apr 2019 23:45:19 GMT
       Expires:
       - '-1'
       Pragma:
@@ -46,7 +46,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - bearer pl3y5F2akzqnF4cMA8g45hxJ7IB0mwu4atTSkAhfDTDFhWKEoPHF2APe-f1b1LCEeK3zOJej7cHlmAGTwpPBgrBEALkXitHVCRmGF3BOQglGvfkF2oOqEtx_A1p55kElaw7ZgLyk8GowGCSahMD9eMPsD_QLjq3oaWzkQIlUpqA-VpvwJfBp2J_zN6Zr3_qheCAQphSkwF-HCQou3_jMwRpl7qVjgno-8RDpj7YfEhTt3cjh2Igm9nkGcQcuA0XJYL9t6nDmkwPM4Vs0V5JafwnPQsY2R6pJow9FylTX52hTF4w-AcxCfq9NQQpht52NUMECLw
+      - bearer yOmHFrUYxfb38gJSVIuY9zmHKE6ug1gmsf1WwyTV-7K6Mr8zK5vrvoL1o0T7eIdEn4rmhXtuzOkHupTdMSRXpiCeUvyva4PcsrCk3-0RTdRusmpjj8um21QU9FQGrlYR1BJPFjfkLct1tPQZAqQrRRnkkf0HhnqxxEzjHPvdB7QZ36NcDERg9_aJsdEsAUTajEARWoATWliKY4DcOyT6p3MDhQff2Sa5Lm-gdY8xLv5_uYTPRPgjiB4g8F8tcC7TydKZRIu7vJkWIMvWYJ3XdoXo5FCUbmOUcFyO7HZIu8gA-2PHjkU87XUebwgl-dd4rRvA0g
       Connection:
       - keep-alive
       User-Agent:
@@ -138,7 +138,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 05 Apr 2019 21:33:35 GMT
+      - Mon, 08 Apr 2019 23:45:19 GMT
       Expires:
       - '-1'
       Pragma:
@@ -158,7 +158,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - bearer pl3y5F2akzqnF4cMA8g45hxJ7IB0mwu4atTSkAhfDTDFhWKEoPHF2APe-f1b1LCEeK3zOJej7cHlmAGTwpPBgrBEALkXitHVCRmGF3BOQglGvfkF2oOqEtx_A1p55kElaw7ZgLyk8GowGCSahMD9eMPsD_QLjq3oaWzkQIlUpqA-VpvwJfBp2J_zN6Zr3_qheCAQphSkwF-HCQou3_jMwRpl7qVjgno-8RDpj7YfEhTt3cjh2Igm9nkGcQcuA0XJYL9t6nDmkwPM4Vs0V5JafwnPQsY2R6pJow9FylTX52hTF4w-AcxCfq9NQQpht52NUMECLw
+      - bearer yOmHFrUYxfb38gJSVIuY9zmHKE6ug1gmsf1WwyTV-7K6Mr8zK5vrvoL1o0T7eIdEn4rmhXtuzOkHupTdMSRXpiCeUvyva4PcsrCk3-0RTdRusmpjj8um21QU9FQGrlYR1BJPFjfkLct1tPQZAqQrRRnkkf0HhnqxxEzjHPvdB7QZ36NcDERg9_aJsdEsAUTajEARWoATWliKY4DcOyT6p3MDhQff2Sa5Lm-gdY8xLv5_uYTPRPgjiB4g8F8tcC7TydKZRIu7vJkWIMvWYJ3XdoXo5FCUbmOUcFyO7HZIu8gA-2PHjkU87XUebwgl-dd4rRvA0g
       Connection:
       - keep-alive
       User-Agent:
@@ -250,7 +250,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 05 Apr 2019 21:33:36 GMT
+      - Mon, 08 Apr 2019 23:45:19 GMT
       Expires:
       - '-1'
       Pragma:
@@ -270,7 +270,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - bearer pl3y5F2akzqnF4cMA8g45hxJ7IB0mwu4atTSkAhfDTDFhWKEoPHF2APe-f1b1LCEeK3zOJej7cHlmAGTwpPBgrBEALkXitHVCRmGF3BOQglGvfkF2oOqEtx_A1p55kElaw7ZgLyk8GowGCSahMD9eMPsD_QLjq3oaWzkQIlUpqA-VpvwJfBp2J_zN6Zr3_qheCAQphSkwF-HCQou3_jMwRpl7qVjgno-8RDpj7YfEhTt3cjh2Igm9nkGcQcuA0XJYL9t6nDmkwPM4Vs0V5JafwnPQsY2R6pJow9FylTX52hTF4w-AcxCfq9NQQpht52NUMECLw
+      - bearer yOmHFrUYxfb38gJSVIuY9zmHKE6ug1gmsf1WwyTV-7K6Mr8zK5vrvoL1o0T7eIdEn4rmhXtuzOkHupTdMSRXpiCeUvyva4PcsrCk3-0RTdRusmpjj8um21QU9FQGrlYR1BJPFjfkLct1tPQZAqQrRRnkkf0HhnqxxEzjHPvdB7QZ36NcDERg9_aJsdEsAUTajEARWoATWliKY4DcOyT6p3MDhQff2Sa5Lm-gdY8xLv5_uYTPRPgjiB4g8F8tcC7TydKZRIu7vJkWIMvWYJ3XdoXo5FCUbmOUcFyO7HZIu8gA-2PHjkU87XUebwgl-dd4rRvA0g
       Connection:
       - keep-alive
       User-Agent:
@@ -363,7 +363,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 05 Apr 2019 21:33:36 GMT
+      - Mon, 08 Apr 2019 23:45:21 GMT
       Expires:
       - '-1'
       Pragma:
@@ -383,7 +383,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - bearer pl3y5F2akzqnF4cMA8g45hxJ7IB0mwu4atTSkAhfDTDFhWKEoPHF2APe-f1b1LCEeK3zOJej7cHlmAGTwpPBgrBEALkXitHVCRmGF3BOQglGvfkF2oOqEtx_A1p55kElaw7ZgLyk8GowGCSahMD9eMPsD_QLjq3oaWzkQIlUpqA-VpvwJfBp2J_zN6Zr3_qheCAQphSkwF-HCQou3_jMwRpl7qVjgno-8RDpj7YfEhTt3cjh2Igm9nkGcQcuA0XJYL9t6nDmkwPM4Vs0V5JafwnPQsY2R6pJow9FylTX52hTF4w-AcxCfq9NQQpht52NUMECLw
+      - bearer yOmHFrUYxfb38gJSVIuY9zmHKE6ug1gmsf1WwyTV-7K6Mr8zK5vrvoL1o0T7eIdEn4rmhXtuzOkHupTdMSRXpiCeUvyva4PcsrCk3-0RTdRusmpjj8um21QU9FQGrlYR1BJPFjfkLct1tPQZAqQrRRnkkf0HhnqxxEzjHPvdB7QZ36NcDERg9_aJsdEsAUTajEARWoATWliKY4DcOyT6p3MDhQff2Sa5Lm-gdY8xLv5_uYTPRPgjiB4g8F8tcC7TydKZRIu7vJkWIMvWYJ3XdoXo5FCUbmOUcFyO7HZIu8gA-2PHjkU87XUebwgl-dd4rRvA0g
       Connection:
       - keep-alive
       User-Agent:
@@ -478,7 +478,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 05 Apr 2019 21:33:38 GMT
+      - Mon, 08 Apr 2019 23:45:22 GMT
       Expires:
       - '-1'
       Pragma:
@@ -498,7 +498,7 @@ interactions:
       Accept-Encoding:
       - gzip, deflate
       Authorization:
-      - bearer pl3y5F2akzqnF4cMA8g45hxJ7IB0mwu4atTSkAhfDTDFhWKEoPHF2APe-f1b1LCEeK3zOJej7cHlmAGTwpPBgrBEALkXitHVCRmGF3BOQglGvfkF2oOqEtx_A1p55kElaw7ZgLyk8GowGCSahMD9eMPsD_QLjq3oaWzkQIlUpqA-VpvwJfBp2J_zN6Zr3_qheCAQphSkwF-HCQou3_jMwRpl7qVjgno-8RDpj7YfEhTt3cjh2Igm9nkGcQcuA0XJYL9t6nDmkwPM4Vs0V5JafwnPQsY2R6pJow9FylTX52hTF4w-AcxCfq9NQQpht52NUMECLw
+      - bearer yOmHFrUYxfb38gJSVIuY9zmHKE6ug1gmsf1WwyTV-7K6Mr8zK5vrvoL1o0T7eIdEn4rmhXtuzOkHupTdMSRXpiCeUvyva4PcsrCk3-0RTdRusmpjj8um21QU9FQGrlYR1BJPFjfkLct1tPQZAqQrRRnkkf0HhnqxxEzjHPvdB7QZ36NcDERg9_aJsdEsAUTajEARWoATWliKY4DcOyT6p3MDhQff2Sa5Lm-gdY8xLv5_uYTPRPgjiB4g8F8tcC7TydKZRIu7vJkWIMvWYJ3XdoXo5FCUbmOUcFyO7HZIu8gA-2PHjkU87XUebwgl-dd4rRvA0g
       Connection:
       - keep-alive
       User-Agent:
@@ -566,7 +566,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Fri, 05 Apr 2019 21:33:40 GMT
+      - Mon, 08 Apr 2019 23:45:24 GMT
       Expires:
       - '-1'
       Pragma:
