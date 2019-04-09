@@ -42,19 +42,19 @@ class TCGSyncTasksTestCase(TestCase):
         card_sync_task = CardSyncTask().s().apply()
         self.assertEquals(card_sync_task.state, 'SUCCESS')
         card_list = Card.objects.all()
-        # There are a total of 45 Zendikar Expeditions, this will not change
+        # There are a total of 350 cards, this will not change
         self.assertEquals(len(card_list), 350)
 
         # Now delete a card and re-run. It should re-sync just the missing card
         Card.objects.get(name='Abyssal Horror').delete()
         card_list = Card.objects.all()
-        # Now this query should return 44
+        # Now this query should return 349
         self.assertEquals(len(card_list), 349)
         # Re-run the sync task now
         card_sync_task = CardSyncTask().s(test=True).apply()
         self.assertEquals(card_sync_task.state, 'SUCCESS')
         card_list = Card.objects.all()
-        # We should be back up to 45 cards in the set
+        # We should be back up to 350 cards in the set
         self.assertEquals(len(card_list), 350)
 
         # Need to test exclusions, so need to do another set for that
