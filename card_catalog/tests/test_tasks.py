@@ -112,5 +112,3 @@ class TCGSyncTasksTestCase(TestCase):
         # The entries should have both foil and nonfoil pricing
         self.assertGreaterEqual(prices[0].low, 0)
         self.assertGreaterEqual(prices[0].foil_low, 0)
-
-

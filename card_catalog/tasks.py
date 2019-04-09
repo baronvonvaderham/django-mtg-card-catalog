@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import transaction
 
-from celery.schedules import crontab
-from celery.task import PeriodicTask, group
+from celery.task import group, Task
 from celery.utils.log import get_task_logger
 
 from card_catalog.constants import EXCLUDED_CARD_NAMES, EXCLUDED_SETS
@@ -13,9 +12,8 @@ from card_catalog.celery_app import app
 logger = get_task_logger('tasks.common')
 
 
-class ScryfallSyncTask(PeriodicTask):
+class ScryfallSyncTask(Task):
     name = 'scryfall-sync-task'
-    run_every = crontab(hour=3)
 
     def run(self, *args, **kwargs):
         logger.info('BEGINNING SCRYFALL SYNC TASK')
@@ -39,9 +37,8 @@ def get_or_create_scryfall_card(card_data):
         logger.info('Created new Scryfall card: {}'.format(card.name))
 
 
-class SetSyncTask(PeriodicTask):
+class SetSyncTask(Task):
     name = 'set-sync-task'
-    run_every = crontab(hour=3, minute=15)
 
     def run(self, *args, **kwargs):
         with transaction.atomic():
@@ -62,9 +59,8 @@ class SetSyncTask(PeriodicTask):
                     counter += 1
 
 
-class CardSyncTask(PeriodicTask):
+class CardSyncTask(Task):
     name = 'card-sync-task'
-    run_every = crontab(hour=4)
 
     def run(self, *args, **kwargs):
         with transaction.atomic():
@@ -103,9 +99,8 @@ class CardSyncTask(PeriodicTask):
             logger.info('CARD SYNC TASK COMPLETE!')
 
 
-class PriceSyncTask(PeriodicTask):
+class PriceSyncTask(Task):
     name = 'price-sync-task'
-    run_every = crontab(hour=5)
 
     def run(self, *args, **kwargs):
         with transaction.atomic():
