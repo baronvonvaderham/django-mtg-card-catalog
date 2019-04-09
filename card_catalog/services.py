@@ -56,7 +56,6 @@ class CardCatalogSyncService(object):
             for x in range(0, queries_required):
                 params['offset'] = x * 100
                 results += self.get_chunk(url, headers, params)
-                time.sleep(1)
         return results
 
     @staticmethod
