@@ -163,7 +163,7 @@ class ScryfallAPIService:
         # Need to add some one-off exceptions due to stupid differences
         if 'Rumors of My Death' in parsed_data.get('name'):
             # Dumb extra spaces inside of the ellipsis
-            parsed_data['name'] = '"Rumors of My Death . . ."'
+            parsed_data['name'] = '\"Rumors of My Death . . .\"'
         if (parsed_data.get('name') == 'Our Market Research Shows That Players Like Really Long Card Names So We Made '
                                        'this Card to Have the Absolute Longest Card Name Ever Elemental'):
             # TCGPlayer truncates this name
