@@ -82,6 +82,7 @@ EXCLUDED_CARD_NAMES = [
     'Land Station',
     'Commander - ',
     'Deluxe Collection',
+    'Endgame Set',
 ]
 
 EXCLUDED_SETS = [
