@@ -69,6 +69,18 @@ EXCLUDED_CARD_NAMES = [
     'Mythic Edition',
     # Of course the 2014 SDCC set had to be named completely differently from the rest and require a unique exclusion
     'SDCC 2014 EXCLUSIVE',
+    'Corpse Knight Reminder Card',
+    'Brawl Deck',
+    'Challenge Deck',
+    'Guild Kit',
+    'Fire and Lightning Deck',
+    'Planeshift - ',
+    'Planechase 2012 - ',
+    'Planechase 2009 - ',
+    'Magic Game Night',
+    'Start Deck',
+    'Land Station',
+    'Commander - ',
 ]
 
 EXCLUDED_SETS = [

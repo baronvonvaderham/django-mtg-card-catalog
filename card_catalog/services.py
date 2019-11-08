@@ -132,6 +132,10 @@ class ScryfallAPIService:
                 # Handle Messy SDCC Exclusives
                 if card.name.endswith('EXCLUSIVE'):
                     new_name = card.name[:-20]
+                    scryfall_data = ScryfallCard.objects.filter(name__icontains=new_name).last()
+            elif '(Showcase)' in card.name:
+                # Handle Showcase Cards
+                new_name = card.name[:-11]
                 scryfall_data = ScryfallCard.objects.filter(name__icontains=new_name).last()
             else:
                 scryfall_data = ScryfallCard.objects.filter(name__icontains=card.name).last()
@@ -168,9 +172,9 @@ class ScryfallAPIService:
         if 'B.F.M.' in parsed_data.get('name'):
             # BFM Halves are not named differently in scryfall
             if parsed_data.get('oracle_id') == '8fd7503b-e722-49a7-a8ac-786e7354bc95':
-                parsed_data['name'] = 'B.F.M. (Big Furry Monster Left)'
+                parsed_data['name'] = 'B.F.M. (Big Furry Monster) (Left)'
             else:
-                parsed_data['name'] = 'B.F.M. (Big Furry Monster Right)'
+                parsed_data['name'] = 'B.F.M. (Big Furry Monster) (Right)'
         return ScryfallCard.objects.get_or_create_card(parsed_data)
 
     @staticmethod
