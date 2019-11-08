@@ -119,7 +119,7 @@ class ScryfallAPIService:
                 # Handle Showcase Cards
                 new_name = card.name[:-11]
                 scryfall_data = ScryfallCard.objects.filter(name__icontains=new_name).last()
-            elif "(" in card.name or "[" in card.name:
+            elif ("(" in card.name or "[" in card.name) and "B.F.M." not in card.name:
                 # If card name contains ( or [, then it has a parenthetical/bracketed variants to ignore
                 split_terms = card.name.split(' ')
                 new_name = ''
