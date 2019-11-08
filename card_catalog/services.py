@@ -115,6 +115,10 @@ class ScryfallAPIService:
             if card.name.split(' ')[0] in BASIC_TYPES:
                 # Handle the plethora of bizarre basic lands
                 scryfall_data = ScryfallCard.objects.filter(name=card.name.split(' ')[0]).last()
+            elif '(Showcase)' in card.name:
+                # Handle Showcase Cards
+                new_name = card.name[:-11]
+                scryfall_data = ScryfallCard.objects.filter(name__icontains=new_name).last()
             elif "(" in card.name or "[" in card.name:
                 # If card name contains ( or [, then it has a parenthetical/bracketed variants to ignore
                 split_terms = card.name.split(' ')
@@ -132,10 +136,8 @@ class ScryfallAPIService:
                 # Handle Messy SDCC Exclusives
                 if card.name.endswith('EXCLUSIVE'):
                     new_name = card.name[:-20]
-                    scryfall_data = ScryfallCard.objects.filter(name__icontains=new_name).last()
-            elif '(Showcase)' in card.name:
-                # Handle Showcase Cards
-                new_name = card.name[:-11]
+                else:
+                    new_name = card.name[:20]
                 scryfall_data = ScryfallCard.objects.filter(name__icontains=new_name).last()
             else:
                 scryfall_data = ScryfallCard.objects.filter(name__icontains=card.name).last()
