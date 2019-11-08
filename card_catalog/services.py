@@ -139,6 +139,10 @@ class ScryfallAPIService:
                 else:
                     new_name = card.name[:20]
                 scryfall_data = ScryfallCard.objects.filter(name__icontains=new_name).last()
+            elif 'Rumors of My Death' in card.name:
+                # Dumb extra spaces inside of the ellipsis
+                new_name = '\"Rumors of My Death . . .\"'
+                scryfall_data = ScryfallCard.objects.filter(name__icontains=new_name).last()
             else:
                 scryfall_data = ScryfallCard.objects.filter(name__icontains=card.name).last()
         try:
@@ -161,9 +165,6 @@ class ScryfallAPIService:
 
         parsed_data = ScryfallAPIService.parse_card_info(card)
         # Need to add some one-off exceptions due to stupid differences
-        if 'Rumors of My Death' in parsed_data.get('name'):
-            # Dumb extra spaces inside of the ellipsis
-            parsed_data['name'] = '\"Rumors of My Death . . .\"'
         if (parsed_data.get('name') == 'Our Market Research Shows That Players Like Really Long Card Names So We Made '
                                        'this Card to Have the Absolute Longest Card Name Ever Elemental'):
             # TCGPlayer truncates this name
