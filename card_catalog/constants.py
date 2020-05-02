@@ -83,6 +83,13 @@ EXCLUDED_CARD_NAMES = [
     'Commander - ',
     'Deluxe Collection',
     'Endgame Set',
+    'Secret Lair Drop:',
+    'Secret Lair: Ultimate Edition Box',
+    'SDCC 2014 Exclusive M15 Black Planeswalkers w/ Axe',
+    # Some nonsense SUM cards suddenly appeared one day
+    'Artifact of Mishra',
+    "Jandor's Mage",
+    "Mon's Goblin Raiders",
 ]
 
 EXCLUDED_SETS = [
@@ -96,4 +103,38 @@ EXCLUDED_SETS = [
     'Magic Premiere Shop',
     'Oversize Cards',
     'Box Sets',
+    # The "test print" cards are just obnoxious, excluding unless a user requests them
+    'Mystery Booster: Convention Edition Exclusives'
 ]
+
+GODZILLA_MAPPER = {
+    'Bio-Quartz Spacegodzilla': 'Brokkos, Apex of Forever',
+    'Rodan, Titan of Winged Fury': 'Vadrok, Apex of Thunder',
+    'Biollante, Plant Beast Form': 'Nethroi, Apex of Death',
+    'Ghidorah, King of the Cosmos': 'Illuna, Apex of Wishes',
+    'King Caesar, Awoken Titan': 'Snapdax, Apex of the Hunt',
+    'Godzilla, Primeval Champion': 'Titanoth Rex',
+    'Godzilla, Doom Inevitable': 'Yidaro, Wandering Monster',
+    'Destoroyah, Perfect Lifeform': 'Everquill Phoenix',
+    'Mothra, Supersonic Queen': 'Luminous Broodmoth',
+    'Gigan, Cyberclaw Terror': 'Gyruda, Doom of Depths',
+    'Spacegodzilla, Void Invader': 'Void Beckoner',
+    'Spacegodzilla, Death Corona': 'Void Beckoner',
+    'Anguirus, Armored Killer': 'Gemrazer',
+    'King Caesar, Ancient Guardian': 'Huntmaster Liger',
+    'Dorat, the Perfect Pet': 'Sprite Dragon',
+    'Babygodzilla, Ruin Reborn': 'Pollywog Symbiote',
+    'Godzilla, King of the Monsters': 'Zilortha, Strength Incarnate',
+    'Battra, Terror of the City': 'Dirge Bat',
+    'Mechagodzilla, the Weapon': 'Crystalline Giant',
+    'Mechagodzilla': 'Crystalline Giant',
+    'Mothra\'s Giant Cocoon': 'Mysterious Egg',
+}
+
+# A mapper to correct incredibly stupid typos in TCGPlayer's database
+STUPID_TCGPLAYER_TYPO_MAPPER = {
+    'Nezumi Shortfang // Nezumi Shortfang': 'Nezumi Shortfang // Stabwhisker the Odious',
+    'Nezumi Graverobber / Nighteyes the Desecrator': 'Nezumi Graverobber // Nighteyes the Desecrator',
+    'Grisly Savage': 'Grisly Salvage',
+    'Wyden the Biting Gale': 'Wydwen, the Biting Gale',
+}

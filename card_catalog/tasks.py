@@ -28,6 +28,7 @@ class ScryfallSyncTask(Task):
                 load_tasks.append(get_or_create_scryfall_card.s(card))
         task_group = group(load_tasks)
         group_complete = task_group.apply()
+        logger.info('SCRYFALL SYNC TASK COMPLETE!')
 
 
 @app.task(name='get_or_create_scryfall_card')
@@ -57,6 +58,7 @@ class SetSyncTask(Task):
                     new_set = create_new_set(each_set)
                     logger.info('CREATED NEW SET: {}'.format(new_set))
                     counter += 1
+            logger.info('SET SYNC TASK COMPLETE!')
 
 
 class CardSyncTask(Task):

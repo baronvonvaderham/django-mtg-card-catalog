@@ -5,6 +5,7 @@ import datetime
 import card_catalog.settings as settings
 import unicodedata
 
+from card_catalog.constants import STUPID_TCGPLAYER_TYPO_MAPPER
 from card_catalog.services import ScryfallAPIService
 
 
@@ -48,6 +49,8 @@ class CardManager(models.Manager):
 
     def create_card(self, tcg_card_data, card_set):
         name = tcg_card_data.get('name')
+        if name in STUPID_TCGPLAYER_TYPO_MAPPER.keys():
+            name = STUPID_TCGPLAYER_TYPO_MAPPER[name]
         tcg_product_id = tcg_card_data.get('productId')
         product_url = tcg_card_data.get('url')
         image_url = tcg_card_data.get('imageUrl')

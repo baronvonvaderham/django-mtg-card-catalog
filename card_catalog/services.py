@@ -11,6 +11,7 @@ from card_catalog.constants import (
     TCG_CARD_LIST_FOR_SET_URL,
     TCG_PRICES_FOR_SET_URL,
     BASIC_TYPES,
+    GODZILLA_MAPPER,
 )
 from card_catalog.settings import TCG_API_PRIVATE_KEY, TCG_API_PUBLIC_KEY
 
@@ -110,6 +111,8 @@ class ScryfallAPIService:
     def update_card_from_scryfall(card):
         from card_catalog.models import ScryfallCard
         card_name = ''.join(c for c in unicodedata.normalize('NFD', card.name) if unicodedata.category(c) != 'Mn')
+        # Strip out `~` characters because this is how TCGPlayer expresses strikethrough for one card from Unstable
+        card_name = card_name.replace('~', '')
         scryfall_data = ScryfallCard.objects.filter(name=card_name).last()
         if not scryfall_data:
             if card.name.split(' ')[0] in BASIC_TYPES:
@@ -118,6 +121,10 @@ class ScryfallAPIService:
             elif '(Showcase)' in card.name:
                 # Handle Showcase Cards
                 new_name = card.name[:-11]
+                scryfall_data = ScryfallCard.objects.filter(name__icontains=new_name).last()
+            elif card.name.split(' - ')[0] in GODZILLA_MAPPER.keys():
+                # Godzilla series cards are really annoying since the name contains both the real and fake name
+                new_name = GODZILLA_MAPPER[card.name.split(' - ')[0]]
                 scryfall_data = ScryfallCard.objects.filter(name__icontains=new_name).last()
             elif ("(" in card.name or "[" in card.name) and "B.F.M." not in card.name:
                 # If card name contains ( or [, then it has a parenthetical/bracketed variants to ignore
