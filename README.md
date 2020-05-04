@@ -5,7 +5,7 @@ A reusable django app for syncing the full card and product catalog from TCGPlay
 Also includes a Scryfall API service for augmenting TCGPlayer card data with additional useful attributes (e.g. CMC, color, types)
 
 Installation
-------------
+============
 1. Add to your requirements.txt:
 ```
 -e git://github.com/baronvonvaderham/django-mtg-card-catalog@master#egg=django-mtg-card-catalog
@@ -22,7 +22,7 @@ Installation
 4. Run "python manage.py migrate" to create the required models.
 
 Configuration
--------------
+=============
 Required settings:
 * TCG_API_PUBLIC_KEY (str)
 * TCG_API_PRIVATE_KEY (str)
@@ -33,11 +33,12 @@ These are the credentials that were provided to you by TCGPlayer when your appli
 
 
 Usage
------
+=====
 
 Models, services, and tasks can be accessed directly. In most cases, you will be referencing a Card, CardSet, CardPrice, etc. as a ForeignKey on your own models to easily attach the relevant data, and will just need to set up a celery beat schedule to run the sync tasks automatically to keep these tables up to date.
 
-####Tasks
+Tasks
+-----
 These are the core tasks that must be added to your app's celery beat schedule. There are other "minor" tasks that are called by these but should not be called directly.
 
 * ScryfallSyncTask
@@ -54,7 +55,8 @@ These are the core tasks that must be added to your app's celery beat schedule. 
     * Task Name: `price-sync-task` 
     * Function: Queries all card sets in the database, then for each set queries the TCGPlayer API for prices for each product for that set
 
-####Schedule
+Schedule
+--------
 
 A simple celery beat schedule is all that is needed to make use of these tasks. This is a single entry added to your project's settings file.
 
