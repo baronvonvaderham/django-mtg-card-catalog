@@ -166,6 +166,9 @@ class ScryfallCard(models.Model):
 
     objects = ScryfallCardManager()
 
+    def __str__(self):
+        return self.name
+
 
 class CardPriceManager(models.Manager):
 
@@ -230,3 +233,6 @@ class CardPrice(models.Model):
     foil_market = models.DecimalField(blank=True, null=True, max_digits=20, decimal_places=2)
 
     objects = CardPriceManager()
+
+    def __str__(self):
+        return f'{self.card} Prices for {self.date}'
