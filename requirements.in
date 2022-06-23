@@ -1,0 +1,7 @@
+celery
+coverage
+django>=3.0.5
+psycopg2
+redis
+requests
+vcrpy

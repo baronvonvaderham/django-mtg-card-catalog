@@ -1,10 +1,10 @@
 language: python
 python:
-  - "3.6"
+  - "3.8.10"
 services:
   - postgresql
 install:
-  - pip install -r requirements.txt
+  - pip install -r requirements.in
   - pip install coveralls
 script: coverage run manage.py test
 notifications:
