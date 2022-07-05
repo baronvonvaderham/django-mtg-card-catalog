@@ -10,8 +10,6 @@ asgiref==3.5.2
     # via django
 async-timeout==4.0.2
     # via redis
-backports-zoneinfo==0.2.1
-    # via django
 billiard==3.6.4.0
     # via celery
 celery==5.2.7
@@ -36,7 +34,7 @@ coverage==6.4.1
     # via -r requirements.in
 deprecated==1.2.13
     # via redis
-django==4.0.5
+django==4.0.6
     # via -r requirements.in
 idna==3.3
     # via
