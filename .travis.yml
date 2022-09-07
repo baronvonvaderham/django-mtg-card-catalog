@@ -5,9 +5,6 @@ services:
   - postgresql
 addons:
   postgresql: "11"
-  apt:
-    packages:
-      - postgres-11
 env:
   global:
     - PGPORT=5433
