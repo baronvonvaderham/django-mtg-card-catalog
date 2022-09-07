@@ -1,4 +1,4 @@
-celery==4.4.2
+celery
 coverage
 django==4.1.1
 psycopg2
