@@ -64,6 +64,7 @@ DATABASES = {
         'ATOMIC_REQUESTS': False
     },
 }
+print(DATABASES)
 REDIS_HOST = os.getenv('REDIS_HOST', 'redis://')
 
 # CELERY
