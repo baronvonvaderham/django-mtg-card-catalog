@@ -1,8 +1,10 @@
 language: python
 python:
-  - "3.8.10"
+  - "3.10.6"
 services:
   - postgresql
+addons:
+  postgresql: "11"
 install:
   - pip install -r requirements.in
   - pip install coveralls
