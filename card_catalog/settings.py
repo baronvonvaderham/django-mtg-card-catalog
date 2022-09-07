@@ -58,13 +58,12 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'cardcatalog',
         'USER': os.getenv('DB_USER', 'postgres'),
-        'PASSWORD': os.getenv('DB_PASS', None),
+        'PASSWORD': os.getenv('DB_PASS', 'postgres'),
         'HOST': os.getenv('DB_HOST', 'localhost'),
         'PORT': os.getenv('DB_PORT', '5432'),
         'ATOMIC_REQUESTS': False
     },
 }
-print(DATABASES)
 REDIS_HOST = os.getenv('REDIS_HOST', 'redis://')
 
 # CELERY
